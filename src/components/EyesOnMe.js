@@ -2,14 +2,20 @@
 import React from 'react';
 
 export default class EyesOnMe extends React.Component{
-    onBlur = () => console.log('Hey! Eyes on me!')
-    onFocus = () => console.log('Good!')
-        
-
+    handleFocus = (event) =>{
+        console.log(event.type)
+        if (event.type === 'blur'){
+            console.log('Hey! Eyes on me!')
+        }
+        else if (event.type === 'focus'){
+            console.log('Good!')
+        }
+    }
 
     render(){
+        
         return(
-            <button onFocus={this.onFocus} onBlur={this.onBlur}> Eyes on me Bitches!</button>
+            <button onFocus={this.handleFocus} onBlur={this.handleFocus}> Eyes on me!</button>
         )
     }
 }
